@@ -1,14 +1,6 @@
 //=============================================================================
 // File   : async_fifo_tb.sv
 // Module : async_fifo_tb
-//
-// Description:
-//   Self-checking testbench for async_fifo_top (16 x 32-bit asynchronous
-//   FIFO). A behavioral queue (sb_queue) acts as the golden reference model:
-//   every accepted write pushes wdata into the queue, every accepted read
-//   pops the queue and compares the expected value against rdata. All
-//   pass/fail results are tallied and a final PASS/FAIL summary is printed.
-//
 //   Test sequence:
 //     1. Reset check                - EMPTY asserted, FULL deasserted
 //     2. Single write / single read - basic sanity
@@ -27,13 +19,6 @@
 //                                       delays, random enable pulses, over a
 //                                       large number of transactions
 //
-// Notes:
-//   - DUT is instantiated with DSIZE = 32, ASIZE = 4 (16-word depth), the
-//     configuration required by the project brief.
-//   - wclk_period / rclk_period are plain variables (not parameters) so the
-//     effective clock frequencies can be changed mid-simulation to exercise
-//     different clock relationships without instantiating multiple DUTs.
-//=============================================================================
 
 `timescale 1ns/1ps
 

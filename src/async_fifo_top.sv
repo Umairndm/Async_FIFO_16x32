@@ -2,20 +2,7 @@
 // File   : async_fifo_top.sv
 // Module : async_fifo_top
 //
-// Description:
-//   Top-level 16 x 32-bit asynchronous FIFO. Wraps the dual-port memory,
-//   the write- and read-pointer handlers, and the two Gray-code
-//   synchronizers that carry pointer information safely across the write
-//   and read clock domains. This module follows the architecture in
-//   doc/async_fifo_block_diagram.png:
-//
-//        wdata --------------------------> [ fifo_mem ] --------------> rdata
-//                                            ^         ^
-//                                       waddr|         |raddr
-//                                            |         |
-//        winc --> [ wptr_full ] --wptr--> [sync w2r] --> rq2_wptr --> [ rptr_empty ] <-- rinc
-//                       ^                                                   |
-//                       |<---------- wq2_rptr <-- [sync r2w] <----- rptr ---|
+
 //
 // Parameters:
 //   DSIZE : data width   (default 32)

@@ -2,14 +2,6 @@
 // File   : two_ff_sync.sv
 // Module : two_ff_sync
 //
-// Description:
-//   Generic two-stage (double flip-flop) synchronizer used to bring a
-//   Gray-coded pointer safely from one clock domain into another. Gray
-//   coding guarantees only a single bit toggles between consecutive pointer
-//   values, so even if the destination domain samples the bus mid-transition
-//   the resulting metastability can only resolve to a value that is at most
-//   one count away from the correct one - it can never be an arbitrary,
-//   corrupted value.
 //
 // Parameters:
 //   WIDTH : width of the vector being synchronized (pointer width, ASIZE+1)

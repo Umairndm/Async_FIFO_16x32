@@ -1,20 +1,6 @@
 //=============================================================================
 // File   : wptr_full.sv
 // Module : wptr_full
-//
-// Description:
-//   Write-domain pointer handler. Maintains the binary write pointer (used
-//   to address memory locally), derives its Gray-coded equivalent (used to
-//   cross into the read clock domain), and generates the registered FULL
-//   flag by comparing the next Gray write pointer against the read pointer
-//   that has already been synchronized into the write domain (wq2_rptr).
-//
-//   FULL detection (Cummings' classic test): the FIFO is full when the next
-//   write pointer, in Gray code, is equal to the synchronized read pointer
-//   with its two MSBs inverted. Comparing the two MSBs inverted is what
-//   distinguishes "pointers equal because full" from "pointers equal
-//   because empty" in a Gray-coded, wrap-around pointer scheme.
-//
 // Parameters:
 //   ASIZE : address bus width (pointer width = ASIZE+1)
 //

@@ -49,7 +49,7 @@ async-fifo-16x32/
 │   └── async_fifo_tb.sv            # self-checking testbench + scoreboard
 └── doc/                            # design diagram(s) and project spec
     ├── async_fifo_block_diagram.png
-    └── project_specification.pdf
+    
 ```
 
 ## Architecture
@@ -172,16 +172,38 @@ vsim -c work.async_fifo_tb -do "run -all; quit -f"
 A successful run ends with a block of the form:
 
 ```
-=================================================================
- TEST SUMMARY
-   Writes accepted        : <N>
-   Reads accepted/checked : <N>
-   Writes blocked (FULL)  : <N>
-   Reads blocked (EMPTY)  : <N>
-   Checks passed          : <N>
-   Checks failed          : 0
- RESULT: PASS - all checks passed
-=================================================================
+ =================================================================
+ Asynchronous FIFO (16 x 32) Self-Checking Testbench
+ =================================================================
+ 
+ [TEST 1] Reset behavior
+ 
+ [TEST 2] Single write / single read
+ 
+ [TEST 3] Fill to FULL, then attempt overflow writes
+ 
+ [TEST 4] Drain to EMPTY, then attempt underflow reads
+ 
+ [TEST 5] Pointer wrap-around (repeated fill/drain cycles)
+ 
+ [TEST 6] Simultaneous read/write around FULL/EMPTY boundaries
+ 
+ [TEST 7] Randomized stress - wclk faster than rclk
+ 
+ [TEST 7] Randomized stress - rclk faster than wclk
+ 
+ [TEST 7] Randomized stress - comparable, non-integer-ratio clocks
+ 
+ =================================================================
+  TEST SUMMARY
+    Writes accepted        : 1018
+    Reads accepted/checked : 1018
+    Writes blocked (FULL)  : 6
+    Reads blocked (EMPTY)  : 6
+    Checks passed          : 1040
+    Checks failed          : 0
+  RESULT: PASS - all checks passed
+ =================================================================
 ```
 
 Any data mismatch, or any failed status-flag/scoreboard check, prints a `FAIL:` line with the simulation time and increments the failure count, and is reflected in the final `RESULT:` line.

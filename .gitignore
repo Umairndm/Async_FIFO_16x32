@@ -1,0 +1,7 @@
+work/
+transcript
+vsim.wlf
+*.wlf
+*.log
+*.vcd
+*.ucdb
